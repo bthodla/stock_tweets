@@ -1,6 +1,4 @@
-import sys
-
-def prime(n: int) -> int:
+def prime(n: int) -> list:
     a, s = 1, []
     while a <= n:
         if is_prime (a):
@@ -8,7 +6,8 @@ def prime(n: int) -> int:
         a += 1
     return s
 
-def is_prime(n: int) -> int:
+
+def is_prime(n: int) -> bool:
     is_prime = True
     b, c = pow(n, 1 / 2), 2
     while c <= b:
@@ -20,7 +19,8 @@ def is_prime(n: int) -> int:
         c += 1
     return is_prime
 
-def fibonacci_series(n: int) -> int:
+
+def fibonacci_series(n: int) -> list:
     a, b, s = 0, 1, []
     assert isinstance(n, int)
     while a <= n:
@@ -28,6 +28,7 @@ def fibonacci_series(n: int) -> int:
         s.append(a)
         a, b = b, a + b
     return s
+
 
 def fibonacci (n: int) -> int:
     if n == 0:
@@ -38,14 +39,16 @@ def fibonacci (n: int) -> int:
         return fibonacci(n -1) + fibonacci(n - 2)
 
 
-def is_fib_number (n: int) -> int:
+def is_fib_number (n: int) -> bool:
     if (n in fibonacci_series(n)):
         return True
     else:
         return False
 
-def fib_prime_matches (n: int) -> int:
+
+def fib_prime_matches (n: int) -> list:
     return sorted ((set (fibonacci_series (n)) & set (prime (n))))
+
 
 def factorial (n: int) -> int:
     if (n == 0):
@@ -54,6 +57,7 @@ def factorial (n: int) -> int:
         recurse = factorial(n - 1)
         result = n * recurse
         return result
+
 
 def find (word, letter):
     index = 0
