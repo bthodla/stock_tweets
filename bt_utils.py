@@ -59,11 +59,30 @@ def factorial (n: int) -> int:
         return result
 
 
-def find (word, letter):
-    index = 0
+def find (word: [], letter: str, startpos=0) -> int:
+    index = startpos
     while index < len (word):
         if word [index] == letter:
             return index
         else:
             index = index + 1
     return -1
+
+
+def reverse (s: str) -> str:
+    return s [::-1]
+
+
+def is_palindrome (s: str) -> bool:
+    return s.lower() == reverse(s.lower())
+
+
+def has_letter (s: str, letter: str) -> bool:
+    return letter in s
+
+
+def avoids (s: str, fbw: str) -> bool:
+    for i in range (0, len (fbw)):
+        if fbw [i] in s:
+            return False
+    return True
