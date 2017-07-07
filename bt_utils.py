@@ -82,7 +82,20 @@ def has_letter (s: str, letter: str) -> bool:
 
 
 def avoids (s: str, fbw: str) -> bool:
+    # return ''.join(sorted(fbw)) not in ''.join(sorted(s))
     for i in range (0, len (fbw)):
         if fbw [i] in s:
             return False
     return True
+
+
+def uses_all (s: str, pw: str) -> bool:
+    # return ''.join(sorted(pw)) in ''.join(sorted(s))
+    for i in range (0, len (pw)):
+        if pw [i] not in s:
+            return False
+    return True
+
+
+def uses_only (s: str, pw: str) -> bool:
+    return sorted(pw) == sorted(s)
