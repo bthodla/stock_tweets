@@ -8,16 +8,16 @@ def prime(n: int) -> list:
 
 
 def is_prime(n: int) -> bool:
-    is_prime = True
+    is_prime_no = True
     b, c = pow(n, 1 / 2), 2
     while c <= b:
         if n % c == 0:
-            is_prime = False
+            is_prime_no = False
             break
         else:
-            is_prime = True
+            is_prime_no = True
         c += 1
-    return is_prime
+    return is_prime_no
 
 
 def fibonacci_series(n: int) -> list:
@@ -40,7 +40,7 @@ def fibonacci (n: int) -> int:
 
 
 def is_fib_number (n: int) -> bool:
-    if (n in fibonacci_series(n)):
+    if n in fibonacci_series(n):
         return True
     else:
         return False
@@ -51,7 +51,7 @@ def fib_prime_matches (n: int) -> list:
 
 
 def factorial (n: int) -> int:
-    if (n == 0):
+    if n == 0:
         return 1
     else:
         recurse = factorial(n - 1)
@@ -90,11 +90,11 @@ def avoids (s: str, fbw: str) -> bool:
 
 
 def uses_all (s: str, pw: str) -> bool:
-    # return ''.join(sorted(pw)) in ''.join(sorted(s))
-    for i in range (0, len (pw)):
-        if pw [i] not in s:
-            return False
-    return True
+    # return ' '.join(sorted(pw)) in ' '.join(sorted(s))
+     for i in range (0, len (pw)):
+         if pw [i] not in s:
+             return False
+     return True
 
 
 def uses_only (s: str, pw: str) -> bool:
