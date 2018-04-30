@@ -1,3 +1,5 @@
+import math
+
 def prime(n: int) -> list:
     a, s = 1, []
     while a <= n:
@@ -50,13 +52,13 @@ def fib_prime_matches (n: int) -> list:
     return sorted ((set (fibonacci_series (n)) & set (prime (n))))
 
 
-def factorial (n: int) -> int:
-    if n == 0:
-        return 1
-    else:
-        recurse = factorial(n - 1)
-        result = n * recurse
-        return result
+# def factorial (n: int) -> int:
+#     if n == 0:
+#         return 1
+#     else:
+#        recurse = factorial(n - 1)
+#        result = n * recurse
+#        return result
 
 
 def find (word: [], letter: str, startpos=0) -> int:
@@ -70,7 +72,12 @@ def find (word: [], letter: str, startpos=0) -> int:
 
 
 def reverse (s: str) -> str:
-    return s [::-1]
+#    return s [::-1]
+    result = ''
+    for i in range(len(s)):
+        i = i + 1
+        result = result + s[i * -1]
+    return result
 
 
 def is_palindrome (s: str) -> bool:
@@ -79,6 +86,14 @@ def is_palindrome (s: str) -> bool:
 
 def has_letter (s: str, letter: str) -> bool:
     return letter in s
+
+
+def count (s: str, letter: str) -> int:
+    count = 0
+    for l in s.upper():
+        if l == letter.upper():
+            count = count + 1
+    return count
 
 
 def avoids (s: str, fbw: str) -> bool:
@@ -91,11 +106,26 @@ def avoids (s: str, fbw: str) -> bool:
 
 def uses_all (s: str, pw: str) -> bool:
     # return ' '.join(sorted(pw)) in ' '.join(sorted(s))
-     for i in range (0, len (pw)):
-         if pw [i] not in s:
-             return False
-     return True
+    # for i in range (0, len (pw)):
+    #     if pw [i] not in s:
+    #         return False
+    for letter in pw:
+        if letter not in s:
+            return False
+    return True
 
 
 def uses_only (s: str, pw: str) -> bool:
     return sorted(pw) == sorted(s)
+
+
+def print_lyrics():
+    print ("Hey Jude! Don't you be sad! Take a sad song and make it better")
+    print ("Remember to get it into your heart! Then you can start to make it better")
+
+def repeat_lyrics():
+    print_lyrics()
+    print_lyrics()
+
+def right_justify(s: str, line_length:int):
+    return (line_length - len(s)) * ' ' + s
