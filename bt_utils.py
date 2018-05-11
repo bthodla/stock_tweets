@@ -1,12 +1,18 @@
 import math
 
 def prime(n: int) -> list:
-    a, s = 1, []
-    while a <= n:
-        if is_prime (a):
-            s.append(a)
-        a += 1
-    return s
+    try:
+        assert isinstance(n, int)
+    except AssertionError:
+        print ('Invalid argument type - expecting an integer')
+        return []
+    else:
+        a, s = 1, []
+        while a <= n:
+            if is_prime (a):
+                s.append(a)
+            a += 1
+        return s
 
 
 def is_prime(n: int) -> bool:
@@ -24,12 +30,16 @@ def is_prime(n: int) -> bool:
 
 def fibonacci_series(n: int) -> list:
     a, b, s = 0, 1, []
-    assert isinstance(n, int)
-    while a <= n:
-        # print(a, end=' ')
-        s.append(a)
-        a, b = b, a + b
-    return s
+    try:
+        assert isinstance(n, int)
+    except AssertionError:
+        print ('Invalid argument - expecting int')
+    else:
+        while a <= n:
+            # print(a, end=' ')
+            s.append(a)
+            a, b = b, a + b
+        return s
 
 
 def fibonacci (n: int) -> int:
